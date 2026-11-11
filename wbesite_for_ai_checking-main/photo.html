@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check a Photo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Loading Bar Styles updated to match your warm theme */
+        #loading-container {
+            display: none;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .progress-bar-background {
+            width: 100%;
+            background-color: #e8e2d9; 
+            border-radius: 8px;
+            overflow: hidden;
+            height: 24px;
+            margin-top: 10px;
+        }
+        .progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background-color: #c86432; 
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Check a Photo</h1>
+        
+        <p class="instructions">
+            Choose a picture from your device to see if it was created by an AI or taken by a human.
+        </p>
+
+        <form id="upload-form" action="/upload-photo" method="POST" enctype="multipart/form-data">
+            
+            <div class="upload-box">
+                <div style="font-size: 40px; margin-bottom: 10px;">🖼️</div>
+                <label for="photo-upload">Select Your Photo</label>
+                <p style="font-size: 18px; color: #5c554e; margin-top: 0; margin-bottom: 15px;">Click the button below to pick a single image</p>
+                
+                <input type="file" id="photo-upload" name="file" accept="image/*" required>
+            </div>
+
+            <!-- Loading Bar -->
+            <div id="loading-container">
+                <p style="font-size: 20px; font-weight: bold; color: #2d2a26; margin: 0;">Analyzing file... please wait.</p>
+                <div class="progress-bar-background">
+                    <div id="loading-bar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="primary-button">Check This Picture</button>
+            
+        </form>
+
+        <a href="index.html" class="secondary-button">← Return to the main page</a>
+
+        <p class="footer-note">
+            Your file will be examined immediately and removed as soon as we show you the result.
+        </p>
+    </div>
+
+    <!-- JavaScript to handle the loading bar -->
+    <script>
+        const form = document.getElementById('upload-form');
+        const fileInput = document.getElementById('photo-upload');
+        const submitBtn = document.getElementById('submit-btn');
+        const loadingContainer = document.getElementById('loading-container');
+        const loadingBar = document.getElementById('loading-bar');
+
+        form.addEventListener('submit', function(event) {
+            if (fileInput.files.length > 1) {
+                event.preventDefault(); 
+                alert("Please select only one file at a time.");
+                return;
+            }
+
+            submitBtn.style.display = 'none';
+            loadingContainer.style.display = 'block';
+
+            let width = 0;
+            const progressInterval = setInterval(function() {
+                if (width >= 95) {
+                    clearInterval(progressInterval);
+                } else {
+                    width += 2; 
+                    loadingBar.style.width = width + '%';
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

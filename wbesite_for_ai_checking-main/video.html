@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check a Video</title>
+    <!-- THIS IS THE MAGIC LINE that connects to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Photo Checker</h1>
+        <p class="instructions">Select a picture from your computer to see if it was made by AI.</p>
+
+        <!-- Form sends only to the Video Model -->
+        <form action="/upload-video" method="POST" enctype="multipart/form-data">
+            
+            <div class="upload-box">
+                <label for="video-upload">Step 1: Choose your video</label>
+                <!-- accept="image/*" restricts them to ONLY videos, no photos -->
+                <input type="file" id="photo-upload" name="file" accept="video/*" required>
+            </div>
+
+            <label for="submit-btn">Step 2: Click to check</label>
+            <button type="submit" id="submit-btn" class="primary-button">Check This Video</button>
+            
+        </form>
+
+        <!-- A helpful back button so seniors don't get stuck -->
+        <a href="index.html" class="secondary-button">← Back to Main Menu</a>
+
+        <p class="footer-note">🔒 Your video is checked securely and immediately deleted.</p>
+    </div>
+
+</body>
+</html>

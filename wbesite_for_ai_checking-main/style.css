@@ -1,0 +1,163 @@
+/* style.css - Warm & Accessible Senior-Friendly Theme */
+
+:root {
+    --bg-warm: #fcf9f5;         /* Soft warm linen / cream */
+    --card-bg: #ffffff;         /* Clean white card */
+    --text-primary: #2d2a26;    /* Warm dark charcoal (easier on eyes than pure black) */
+    --text-muted: #5c554e;      /* Soft earthy gray */
+    --accent-warm: #c86432;     /* Gentle terracotta / warm amber for photos */
+    --accent-warm-hover: #ad5224;
+    --accent-sage: #3d6e52;     /* Gentle sage forest green for videos */
+    --accent-sage-hover: #2e543e;
+    --border-soft: #e8e2d9;     /* Warm subtle divider */
+    --box-highlight: #f7f1e8;   /* Soft sand tint for upload area */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-warm);
+    color: var(--text-primary);
+    font-size: 23px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: var(--card-bg);
+    max-width: 620px;
+    width: 100%;
+    padding: 45px 35px;
+    border-radius: 20px; /* Softer, curved edges feel friendlier */
+    box-shadow: 0 10px 25px rgba(80, 65, 50, 0.07); /* Warm subtle shadow */
+    text-align: center;
+    border: 1px solid var(--border-soft);
+}
+
+h1 {
+    font-size: 36px;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+p.instructions {
+    color: var(--text-muted);
+    font-size: 22px;
+    margin-bottom: 28px;
+}
+
+/* Warm, welcoming instruction card */
+.instruction-box {
+    background-color: var(--box-highlight);
+    border-radius: 14px;
+    padding: 24px;
+    margin: 25px 0 35px;
+    text-align: left;
+}
+
+.instruction-box h2 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.step-list {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.step-list li {
+    font-size: 21px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+/* Upload zone */
+.upload-box {
+    border: 3px dashed #c4b5a5;
+    padding: 35px 25px;
+    border-radius: 14px;
+    background-color: var(--box-highlight);
+    margin-bottom: 30px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 14px;
+    font-size: 24px;
+    color: var(--text-primary);
+}
+
+input[type="file"] {
+    font-size: 20px;
+    width: 100%;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+/* Big, warm photo button */
+.primary-button {
+    background-color: var(--accent-warm);
+    color: #ffffff;
+    border: none;
+    padding: 22px 28px;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 14px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(200, 100, 50, 0.25);
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.primary-button:hover {
+    background-color: var(--accent-warm-hover);
+    transform: translateY(-2px);
+}
+
+/* Earthy sage green for videos */
+.video-button {
+    background-color: var(--accent-sage);
+    box-shadow: 0 4px 10px rgba(61, 110, 82, 0.25);
+}
+
+.video-button:hover {
+    background-color: var(--accent-sage-hover);
+}
+
+/* Soft "Return" button */
+.secondary-button {
+    background-color: #ede7df;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 16px 20px;
+    font-size: 21px;
+    font-weight: 600;
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.secondary-button:hover {
+    background-color: #dfd7cc;
+}
+
+.footer-note {
+    font-size: 19px;
+    color: var(--text-muted);
+    margin-top: 32px;
+    line-height: 1.4;
+}
