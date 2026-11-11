@@ -1,0 +1,21 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+  redis:
+    image: redis:7
+  interface:
+    build: ./interface
+    ports:
+      - "5000:5000"
+    depends_on:
+      - rabbitmq
+      - redis
+  ai-worker:
+    build: ./ai-worker
+    environment:
+      - OMP_NUM_THREADS=1
+    depends_on:
+      - rabbitmq
+      - redis
